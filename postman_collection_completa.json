@@ -1,0 +1,113 @@
+{
+    "info": {
+        "name": "Pilares Inteligencia API - Completa",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": "Colecci\u00f3n completa con todos los endpoints de Pilares, Mensajes e Inteligencia."
+    },
+    "item": [
+        {
+            "name": "Pilares",
+            "item": [
+                {
+                    "name": "Registrar Pilar",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombre\": \"Pilar Norte\",\n    \"posX\": 4.6521,\n    \"posY\": -74.1234,\n    \"estado\": \"Activo\"\n}"
+                        },
+                        "url": "{{base_url}}/api/pilares"
+                    }
+                },
+                {
+                    "name": "Obtener todos los pilares",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/pilares"
+                    }
+                },
+                {
+                    "name": "Obtener pilar por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/pilares/1"
+                    }
+                },
+                {
+                    "name": "Actualizar posici\u00f3n de pilar",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{base_url}}/api/pilares/1/actualizar-posicion",
+                        "query": [
+                            {
+                                "key": "latitud",
+                                "value": "4.7000"
+                            },
+                            {
+                                "key": "longitud",
+                                "value": "-74.1000"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Mensajes",
+            "item": [
+                {
+                    "name": "Registrar fragmento de mensaje",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"pilarId\": 1,\n    \"contenidoFragmentado\": \"El enemigo\",\n    \"fragmento\": 1\n}"
+                        },
+                        "url": "{{base_url}}/api/mensajes"
+                    }
+                },
+                {
+                    "name": "Reconstruir mensaje",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"contenidoReconstruido\": \"\"\n}"
+                        },
+                        "url": "{{base_url}}/api/mensajes/1/reconstruir"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Inteligencia",
+            "item": [
+                {
+                    "name": "Triangulaci\u00f3n estimada",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/inteligencia/triangulacion"
+                    }
+                }
+            ]
+        }
+    ]
+}
